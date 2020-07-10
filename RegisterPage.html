@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <title>Registration · Impulse</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
+  <link rel="stylesheet" href="./public/assets/bootstrap/css/bootstrap.min.css">
+
+  <!-- Bootstrap core CSS -->
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="./public/assets/css/form-validation.css" rel="stylesheet">
+</head>
+
+<body>
+  <section id="section-top">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 title-nav-heading">
+          <nav class="navbar navbar-expand-lg navbar-dark">
+            <h6 class="navbar-brand title-heading" href="#">Create Account</h6>
+          </nav>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <img src="logo.jpg" alt="" class="title-image">
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <div class="container">
+
+    <form id="register-form" class="needs-validation" action="/saveUser" method="POST" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            Upload Photograph
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed" style="background-color: #dbe2ef">
+              <div>
+                <h6 class="my-0">Choose File</h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed" style="background-color: #dbe2ef">
+              <div>
+                <input type="file" name="image" id="image" class="submitbutton" accept="image/*" onchange="preview_image(event)" style="width:102%;" required>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed" style="background-color: #ced4da">
+              <div>
+
+                <!-- Your Photograph code -->
+
+                <img id="output_image" /><br><br>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Personal Details</h4>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <label for="name">Name</label>
+              <input type="text" name="name" class="form-control text-style" id="name" required>
+              <div class="invalid-feedback">
+                Name is required.
+              </div>
+            </div>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control text-style" name="email" id="email" placeholder="you@example.com" required>
+            <div class="invalid-feedback">
+              Please enter a valid email address.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="address">Date of Birth</label>
+            <input type="date" class="form-control text-style" name="birth" id="dob" required pattern="\d{4}-\d{2}-\d{2}">
+          </div>
+
+          <div class="mb-3">
+            <label for="address2">Phone Number</label>
+            <input type="number" class="form-control text-style" name="phone" id="phone" min="1000000000" max="999999999999" required>
+          </div>
+
+          <hr class="mb-4">
+
+
+          <h4 class="mb-3">Setup Password</h4>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="cc-name">Password</label>
+              <input type="password" name="pass" class="form-control text-style" id="pass" placeholder="" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="cc-number">Confirm Password</label>
+              <input type="password" name="cpass" class="form-control text-style" id="cpass" placeholder="" required>
+            </div>
+          </div>
+          <hr class="mb-4">
+          <input class="submitbutton btn btn-primary btn-lg btn-block" type="submit" name="submit" id="sbmt" onclick="validatePassword();" value="Register" style="background-color: #1f4068">
+
+    </form>
+  </div>
+  </div>
+
+
+  </div>
+
+  <section id="section-footer">
+    <footer>
+      <div class="container-fluid container-fluid-footer">
+        <div class="copyright">
+          <p class="section-footer-content">©Impulse VMS By Team 3</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js">
+
+  </script>
+  <script src="./public/assets/js/form-validation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Impulse VMS: Poll Creation Status</title>
+</head>
+
+<body>
+    <h1> <%= statusMessage %> </h1>
+    <p>
+        <h3>You Will Be Logged Out From Impulse. Please login again.</h3>
+    </p>
+    <p>
+        <h3>
+            You will be redirected to login page shortly...
+        </h3>
+    </p>
+    <script>
+        setTimeout(function() {
+            window.location="/"
+        },10000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+body {
+  background-color: #dbe2ef;
+  font-size: 1.2rem;
+}
+
+#section-top {
+  background-color: #1f4068;
+  height: 1%;
+  text-align: center;
+}
+
+.container-fluid {
+  padding: 3% 10% 1%;
+}
+
+.nav-item {
+  padding-right: 1rem;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.thead-design {
+  background-color: #1f4068;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+
+hr {
+  border: solid;
+  width: 50%;
+  border-width: 1px;
+  border-color: #1f4068;
+}
+
+.poll_border {
+  border-right: solid;
+  border-width: 0.5px;
+}
+
+.poll_type_configuration {
+  margin-left: 40%;
+}
+
+@media (max-width:768px) {
+  .poll_border {
+    border-right: none;
+  }
+}
+
+#section-footer {
+  background-color: #393e46;
+  color: #fff;
+  padding: 2%;
+  text-align: center;
+  font-size: 12px;
+}
+
+
+.car-layout{
+  width: 106%;
+  height: 110%;
+  text-align: center;
+}
+
+.section-screenshot-row{
+  text-align: center;
+  margin-bottom: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#my_camera{
+  margin:0 auto 0 auto;
+  width: 20rem;
+  height: 15rem;
+
+}
+
+@media (max-width:991px){
+  .verification-col{
+    text-align: center;
+    margin-top: 3.125rem;
+  }
+}
+
+#section-vote{
+  text-align: center;
+}
+
+.section-vote-table-head{
+    background-color: #1f4068;
+    color: #fff;
+}
+
+.section-vote-table{
+  background-color: #f7fbe1;
+}
+
+.vote-btn{
+  background-color: #1f4068;
+}

@@ -1,0 +1,106 @@
+@import
+	url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap')
+	;
+
+
+body {
+	background: #f8f9fa;
+}
+
+.wrapper .top_navbar {
+	width: 98%;
+	height: 80px;
+	display: flex;
+	top: 0px;
+	background: #fff;
+	align-items: center;
+	padding: 0 20px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.section3_PollType {
+	font-family: Segoe UI;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+	
+	padding: 15px;
+	transition: all 0.3s ease;
+	background: #fff;
+	
+	font-size: 20px;
+	line-height: 22px;
+	border: 1px solid #ccc;
+	padding: 10px;
+} 
+
+.section1_NumberOfCandidate {
+	font-family: Segoe UI;
+	
+	margin-top: 30px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+	
+	padding: 15px;
+	transition: all 0.3s ease;
+	background: #fff;
+	
+	font-size: 20px;
+	line-height: 22px;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+
+
+
+input[type=text] {
+	font-family: Segoe UI; font-size: 25px;
+	width: 70%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	margin-left: 15%;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	
+}
+
+.add {
+	background-color: #1177d1;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 50%;
+	
+}
+
+input[type=radio]{
+	width:50%;
+	border: 1px solid #ccc;
+	box-sizing: border-box;	
+}
+
+textarea {
+	width: 70%;
+	height: 20%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	margin-left: 20%;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+button {
+	background-color: #1177d1;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 50%;
+}
+

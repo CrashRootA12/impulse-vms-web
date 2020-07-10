@@ -1,0 +1,130 @@
+body{
+  background-color: #dbe2ef;
+}
+
+/********************************************************************************************************
+Top Section
+
+*********************************************************************************************************/
+
+#section-top{
+  background-color: #1f4068;
+  height: 1%;
+  text-align: center;
+
+}
+
+.userimg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.container-fluid{
+  padding: 3% 10% 1%;
+}
+
+.title-image{
+  border-radius: 100%;
+  width: 30%;
+  margin-left: 12.5rem;
+}
+
+.title-heading{
+  color:white;
+  font-size:2rem;
+  padding-top: 3rem;
+  margin-right: 3.43rem;
+}
+
+.nav-item{
+  padding-right: 1rem;
+}
+
+@media (max-width:990px) {
+    .title-image{
+      margin-left: 0rem;
+      text-align: center;
+
+    }
+}
+
+/********************************************************************************************************
+Semi-Middle Section
+
+*********************************************************************************************************/
+
+#semi-middle{
+  background-color: #dbe2ef;
+  color: #3d84a8;
+}
+
+.semi-middle-heading{
+  display: inline-block;
+  font-size: 1.1rem;
+}
+
+#semi-middle .container-fluid{
+  padding-top: 1rem;
+}
+
+
+/********************************************************************************************************
+Middle Section
+
+*********************************************************************************************************/
+
+
+#section-middle{
+  text-align: center;
+}
+
+.section-middle-heading3{
+  font-size: 1.2rem;
+}
+
+.card-header{
+  background-color: #3d84a8;
+  color: #abedd8;
+}
+
+.card-body{
+  background-color: #d3d4d8;
+}
+
+.card{
+  margin: 0.05% 5% 5% 5%;
+  height: 90%;
+  border: solid;
+  border-color: #faf2f2;
+}
+
+.section-middle-image{
+  width: 90%;
+  height: 60%;
+  padding: 2%;
+  border-radius: 5%;
+}
+
+.section-middle-button{
+  margin-top: 2rem;
+}
+
+/********************************************************************************************************
+Footer Section
+
+*********************************************************************************************************/
+#section-footer{
+  background-color: #393e46;
+  color:#fff;
+  padding: 5%;
+
+}
+
+.copyright{
+  text-align: center;
+  font-size: 12px;
+}
+
+.scroll-to-top{
+  float: right;
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Impulse VMS Results(<%= poll_id %>): <%= poll_name %> </title>
+  <link rel="icon" href="../public/assets/img/logo.svg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@300&display=swap"
+    rel="stylesheet">
+  <!-- <script src="https://kit.fontawesome.com/e2f5c4a7a4.js" crossorigin="anonymous"></script> -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../public/assets/css/resultStyle.css">
+</head>
+
+<body>
+
+
+
+  <!--
+  Top Section
+ -->
+  <section id="section-top">
+    <!-- <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+      <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+        <h3 class="text-dark mb-0">Welcome&nbsp;</h3>
+        <h3 class="text-dark mb-0" name="username" id="username">User</h3>&nbsp
+        <h3 class="text-dark mb-0">(ID: </h3>
+        <h3 class="text-dark mb-0" name="userid" id="user_id">id</h3>
+        <h3 class="text-dark mb-0">) </h3>
+        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <div class="input-group">
+            <div class="input-group-append"></div>
+          </div>
+        </form>
+
+      </div>
+    </nav> -->
+
+    <div class="container-fluid">
+
+
+      <!-- Nav Bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand ti" href="#">Result</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+          <ul class="navbar-nav ml-auto">
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#section-graph">Graph</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#section-middle">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Log-Out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+  </section>
+
+  <!--
+  Semi-Middle Section
+ -->
+
+  <section id="semi-middle">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <img src="../public/assets/img/logo.svg" alt="">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 id="winner-declaration"><%= winner_name %> (ID: <%= winner_id %>) </h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <h4 id="name-of-election">Maximum Voted Candidate(s) of the Poll: <%= poll_name %>(Poll ID: <%= poll_id %>) </h4>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+
+
+  <!--
+Middle Section
+ -->
+  <hr>
+  <section id="section-vote">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-9">
+          <table class="table table-bordered dataTable my-0 section-vote-table" id="dataTable">
+            <thead class="section-vote-table-head">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Votes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for( let index = 0; index < poll_candidates_ids.length; index++ ) { %>
+              <tr>
+                <td><%= poll_candidates_ids[index] %> </td>
+                <td><%= poll_candidates_names[index] %></td>
+                <td><%= poll_candidates_votes[index] %></td>
+              </tr>
+              <% } %>
+
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-lg-3">
+          <div id="chartContainer" style="text-align:center;">
+            <!-- <canvas id="chart-area"></canvas> -->
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- <hr>
+     <section id="section-graph">
+
+       <div class="container-fluid">
+         <div id="canvas-holder" >
+       <canvas id="chart-area"></canvas>
+   </div>
+       </div>
+
+     </section> -->
+
+  <!--
+Footer Section
+ -->
+
+  <section id="section-footer">
+    <div class="footer-dark">
+      <footer>
+        <div class="container">
+          <div class="copyright">
+            <p>©Impulse VMS By Team 3</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+
+  <!-- <script src="./public/assets/js/jquery.min.js"></script>
+  <script src="./public/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+  <script src="./public/assets/js/theme.js"></script> -->
+  <!-- <script src="Chart.js"></script> -->
+  <!-- <script src="utils.js"></script> -->
+  <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script>
+    window.onload = function () {
+
+      var vote = [<%= poll_candidates_votes %>] ;
+      var candidate = [
+      <% poll_candidates_names.forEach(element => { %>
+        "<%= element %>",
+ <% }) %>
+      ] ;
+      var options = {
+        series: vote,
+        chart: {
+          width: 380,
+          type: 'pie',
+        },
+        labels: candidate,
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chartContainer"), options);
+      chart.render();
+
+    }
+  </script>
+
+</body>
+
+</html>

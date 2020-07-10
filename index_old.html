@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Impulse Home</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./public/style.css">
+    <!-- <link rel = "stylesheet" href="./public/assets/bootstrap/css/bootstrap.min.css"> -->
+    <script src="./public/assets/js/jquery.min.js"></script>
+    <!-- <script src = "./public/assets/bootstrap/js/bootstrap.min.js"></script> -->
+    <style>
+        .btn_login_style:hover {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Here in action we need to write the next file name with extension -->
+    <form id="loginForm" action="/userLogin" method="post">
+        <fieldset>
+            <h2 class="fs-title">Welcome into Impulse</h2>
+            <h3 class="fs-subtitle">Sign-In</h3>
+            <input type="text" name="name" placeholder="User ID " />
+            <input type="password" name="pass" placeholder="Password" />
+            <input class="btn_login_style" name="btn_login" style="color: white;background-color: green;" type="submit"
+                value="Sign-In" />
+        </fieldset>
+    </form>
+    <form id="accessKeyLoginForm" action="/accessKeyLogin" method="POST">
+        <fieldset>
+            <h2 class="fs-subtitle">Login Via Access Key</h2>
+            <input type="text" name="access_key" placeholder="Impulse VMS Access Key">
+            <input class="btn_login_style" name="btn_ak_login" style="color: white;background-color: #27AE60;"
+                type="submit" value="Sign-In" />
+        </fieldset>
+    </form>
+
+    <h3 class="fs-subtitle">Haven't registered yet?</h3>
+    <button class="btn_login_style" id="btn_register" style="color: white;background-color: #27AE60">Register</button>
+    <br>
+    <img id="impulseLogo" src="./public/ImpulseLogo.PNG">
+    <br>
+    <div class="message_container">
+        <div class="message" augmented-ui="exe tl-clip br-clip">
+            <div class="ttl" augmented-ui="exe tl-clip br-clip">ATTENTION</div>
+            <p>UPDATE: May 18th 2020<br>
+                1. Face Recognition Functionality has been enabled through face-api tensorflow core.
+                <br>2. Results Functionality is Pending.
+                <br>3. CSS Changes Required.
+                <br>4. Minor Tweaks Required.
+            
+            <p>
+                ---<strong>Team 3, Impulse VMS</strong>---
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("btn_register").onclick = function () {
+            location.href = "./register";
+        }
+        var rsw_powered = {};
+        rsw_powered["augmented-ui"] = true;
+    </script>
+</body>
+
+
+</html>

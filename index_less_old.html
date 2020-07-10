@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Impulse VMS Login</title>
+    <link rel="stylesheet" href="./public/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/assets/css/styles.min.css">
+</head>
+
+<body>
+    <div id="mainDiv" class="login-dark"
+        style="background-image: url(&quot;public/assets/img/markus-spiske-466ENaLuhLY-unsplash.jpg&quot;);">
+
+
+    </div>
+    <script src="./public/assets/js/jquery.min.js"></script>
+    <script src="./pubic/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        var accessKeyLoginContent =
+            `<form id="accessKeyLoginForm" method="post" action="/accessKeyLogin">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><img src="./public/assets/img/logo.jpg" style="width: 164px;"></div>
+            <div class="form-group"><input class="form-control" type="text" name="access_key"
+                    placeholder="Impulse VMS Access Key"></div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Log In</button>
+                <button id = "btn_login_user_id"
+                    class="btn btn-primary btn-block" onclick = "showUserIdLoginContent()" type="button">Log In Via User ID</button><a
+                    class="btn btn-primary btn-block text-center" role="button"
+                    style="background-color: rgb(35,128,33);" href="/register">Register Into Impulse</a></div>
+        </form>`
+        var userIdLoginContent =
+            `<form id="loginForm" method="post" action="/userLogin">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><img src="./public/assets/img/logo.jpg" style="width: 164px;"></div>
+            <div class="form-group"><input class="form-control" type="text" name="name" placeholder="User ID"></div>
+            <div class="form-group"><input class="form-control" type="password" name="pass" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Log In</button>
+                <button id = "btn_login_access_key" onclick = "showAccessKeyLoginContent()" class="btn btn-primary btn-block" type="button">Log In Via Access Key</button>
+                <a class="btn btn-primary btn-block text-center" role="button" style="background-color: rgb(35,128,33);"
+                    href="/register">Register Into Impulse</a>
+            </div>
+        </form>`
+        $(
+            () => {
+        showUserIdLoginContent()
+            }
+        )
+        function showUserIdLoginContent() {
+            $("#mainDiv").html(userIdLoginContent)
+        }
+        function showAccessKeyLoginContent() {
+            $("#mainDiv").html(accessKeyLoginContent)
+        }
+        
+      
+    </script>
+</body>
+
+</html>

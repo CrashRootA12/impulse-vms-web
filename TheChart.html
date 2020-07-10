@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie Chart</title>
+    <script src="./Chart.js"></script>
+    <script src="./utils.js"></script>
+</head>
+
+<body>
+    <div id="canvas-holder" style="width: 40%">
+        <canvas id="chart-area"></canvas>
+    </div>
+</body>
+<script>
+    var randomScalingFactor = function () {
+        return Math.round(Math.random() * 100)
+    }
+    var config = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor()
+                ],
+                label: 'DS1'
+            }],
+            labels: [
+                'Red','Orange','Pila','Nila','Safed','Kala'
+            ]
+        },
+        options: {
+            responsive:true
+        }
+    }
+    window.onload = function() {
+        var ctx = document.getElementById('chart-area').getContext('2d')
+        window.myPie = new Chart(ctx,config)
+    }
+    
+</script>
+
+</html>

@@ -1,0 +1,73 @@
+body {
+  background-color: #dbe2ef;
+  font-size: 1.2rem;
+}
+
+#section-top {
+  background-color: #1f4068;
+  height: 1%;
+  text-align: center;
+}
+
+.container-fluid {
+  padding: 3% 10% 1%;
+}
+
+.nav-item {
+  padding-right: 1rem;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.thead-design {
+  background-color: #1f4068;
+  color: #fff;
+  text-align: center;
+}
+
+#addCandidateButton {
+  margin-left: 40%;
+  font-size: 1.5rem;
+  width: 20%;
+  margin-top: 5%;
+}
+
+.footer-button {
+  margin-left: 20%;
+  font-size: 1.5rem;
+  width: 20%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+hr {
+  border: solid;
+  border-width: 1px;
+}
+
+.poll_border {
+  border-right: solid;
+  border-width: 0.5px;
+}
+
+.poll_type_configuration {
+  margin-left: 40%;
+}
+
+@media (max-width:768px) {
+  .poll_border {
+    border-right: none;
+  }
+}
+
+#section-footer {
+  background-color: #393e46;
+  color: #fff;
+  padding: 2%;
+  text-align: center;
+  font-size: 12px;
+}

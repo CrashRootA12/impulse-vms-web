@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./public/style.css">
+    <style>
+    
+
+.btn_login_style:hover{
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+    </style>
+<title>Login To Impulse</title>
+</head>
+
+<body>
+<!-- Here in action we need to write the next file name with extension -->
+    <form id="loginForm"  action="/userLogin" method="post">
+        <fieldset>
+            <h2 class="fs-title">Welcome into Impulse</h2>
+            <h3 class="fs-subtitle">Sign-In</h3>
+            <input type="text" name="name" placeholder="Username " />
+            <input type="password" name="pass" placeholder="Password" />
+            <input class="btn_login_style" name="btn_login" style="color: white;background-color: green;" type="submit" value="Sign-In" />
+        </fieldset>
+    </form>
+    <img src = "./public/ImpulseLogo.PNG" height = "48" width="48">
+</body>
+
+</html>

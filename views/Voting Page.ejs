@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Impulse VMS <%= poll_title %></title>
+  <link rel="stylesheet" href="../public/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+  <link rel="stylesheet" href="../public/assets/fonts/fontawesome-all.min.css">
+  <!-- <script defer src = "./public/assets/js/webcam.min.js"></script> -->
+  <script defer src="../public/assets/js/face-api.min.js"></script>
+
+  <!-- <style>
+    #mycanvadiv {
+      position: relative;
+    }
+
+    #theimg {
+      position: relative;
+      top: 5px;
+      left: 5px;
+    }
+  </style> -->
+
+  <link rel="stylesheet" href="../public/assets/css/VotingPageStyle.css">
+</head>
+
+<body>
+
+  <section id="section-top">
+    <div class="container-fluid">
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand ti" href="#"> <%= poll_title %></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="">Dashboard</a> -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Log-Out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <section id="section-screenshot">
+    <div class="container-fluid">
+
+      <div class="row section-screenshot-row">
+        <div class="col-lg-6">
+          <div class="card car-layout">
+            <div class="card-header">
+              <h3 class="section-middle-heading3">Facial Recognition</h3>
+            </div>
+            <div class="card-body" id="my_camera">
+
+              <!-- <button id="ongoing_polls" type="button" class="btn btn-success btn-block section-middle-button">Enter in Polling</button> -->
+
+            </div>
+            <!-- <div class="card-footer"> -->
+              <!-- <input type="button" class="btn btn-success" value="Click" onclick="take_snapshot()"> -->
+            <!-- </div> -->
+          </div>
+        </div>
+
+        <div class="col-lg-6 verification-col">
+          <div class="card car-layout">
+            <div class="card-header">
+              <h3 class="section-middle-heading3">Verification</h3>
+            </div>
+            <div class="card-body" id="results">
+              <!-- <img class="section-middle-image" src="images/ongoing.jpg" alt="on-going image"> -->
+
+              <!-- <button id="ongoing_polls" type="button" class="btn btn-success btn-block section-middle-button">Enter in Polling</button> -->
+
+            </div>
+            <div class="card-footer">
+              <h4 class="section-middle-heading4" id = "fnferror">Choose a Option and click on Vote</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+<img hidden id = "refImage" src = "<%= reference_image %>">
+<hr>
+  <section id="section-vote">
+
+    <div class="container-fluid">
+      <table class="table table-bordered dataTable my-0 section-vote-table" id="dataTable">
+        <thead class="section-vote-table-head">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Vote</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% pollCandidatesList.forEach(idNamePair => { %>
+
+            <tr>
+                <!-- <td><img class="rounded-circle mr-2" width="30" height="30" -->
+                <!-- src="../public/assets/img/avatars/avatar5.jpeg">A</td> -->
+                <td>
+                    <%= idNamePair.split('_')[1] %>
+                </td>
+                <td>
+                    <%= idNamePair.split('_')[0] %>
+                </td>
+                <td><button class="btn btn-primary vote-btn" type="button"
+                        onclick="take_snapshot('<%= idNamePair.split('_')[0]%>')">Vote</button>
+                </td>
+            </tr>
+            <% }) %>
+
+          <!-- <tr>
+            <td>1</td>
+            <td>A</td>
+            <td><button class="btn btn-primary vote-btn" type="button">Vote</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>B</td>
+            <td><button class="btn btn-primary vote-btn" type="button">Vote</button></td>
+
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>C</td>
+            <td><button class="btn btn-primary vote-btn" type="button">Vote</button></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+
+<script src = "../FaceTime.js"></script>
+  <script src="../public/assets/js/jquery.min.js"></script>
+  <script src="../public/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+  <script src="../public/assets/js/theme.js"></script>
+  <script type="text/javascript" src="../public/assets/js/webcam.min.js"></script>
+  <!-- <script type="text/javascript" src = "./FaceTime.js"></script> -->
+  <!-- <script defer src="./"></script> -->
+  <script>
+    Webcam.set({
+      width: 300,
+      height: 150,
+      image_format: 'jpeg',
+      jpeg_quality: 90
+    })
+    Webcam.on('error', function(err) {
+      alert("Webcam Access Error. Try giving the webcam permissions or using https:// protocol")
+    })
+    Webcam.attach('#my_camera')
+
+    function take_snapshot(option_chosen) {
+      document.getElementById("fnferror").innerHTML = "Face Recognition has Started"
+      Webcam.snap(function(data_uri) {
+        document.getElementById("results").innerHTML = '<div id = "mycanvadiv"><img id = "theimg" src="' + data_uri + '"/></div>';
+      })
+      Webcam.reset()
+      // initiateTheFV()
+      ft(option_chosen)
+    }
+    function processTheVote(optionChosen) {
+      console.log("Reached Here")
+      $.post('/initiateVote',{
+        user_id: <%= user_id %> ,
+                poll_id: <%= poll_id %> ,
+                option_chosen: optionChosen
+      },function(recievedInfo) {
+        alert(recievedInfo)
+        window.location = "/"
+      })
+      
+    }
+  </script>
+
+  <section id="section-footer">
+    <div class="copyright">
+      <p>©Impulse VMS By Team 3</p>
+    </div>
+  </section>
+
+
+</body>
+
+</html>

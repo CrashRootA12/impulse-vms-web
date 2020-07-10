@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Impulse VMS: Create New Poll</title>
+  <link rel="stylesheet" href="./public/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700">
+  <link rel="stylesheet" href="./public/assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="./public/assets/css/createPollStyle.css">
+</head>
+
+<body>
+  <section id="section-top">
+    <!-- <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+      <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+        <h3 class="text-dark mb-0">Welcome&nbsp;</h3>
+        <h3 class="text-dark mb-0" name="username" id="username">User</h3>&nbsp
+        <h3 class="text-dark mb-0">(ID: </h3>
+        <h3 class="text-dark mb-0" name="userid" id="user_id">id</h3>
+        <h3 class="text-dark mb-0">) </h3>
+        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <div class="input-group">
+            <div class="input-group-append"></div>
+          </div>
+        </form>
+
+      </div>
+    </nav> -->
+
+    <div class="container-fluid">
+
+
+      <!-- Nav Bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand ti" href="#">Create New Poll</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="NewLoggedInPage.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Log-Out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+  </section>
+
+
+
+  <section id="createPollContent">
+    <div class="container-fluid">
+
+      <form class="border rounded border-primary bounce animated" method="post" action="/createPollSubmit">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <h3>Title</h3>
+            <input class="form-control" type="text" name="cPollTitle" required="">
+          </div>
+          <div class="form-group col-md-6">
+            <h3>Description</h3>
+            <textarea name="cPollDesc" class="form-control"></textarea>
+          </div>
+        </div>
+        <hr>
+        <div class="form-group">
+          <!-- <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"> -->
+          <h3>Poll Candidates Detail</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered" id="candidateTable">
+              <thead class="thead-design">
+                <tr>
+                  <th>Candidate ID (Must Be Unique)</th>
+                  <th>Candidate Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- <tr>
+                        <td><input class="form-control" type="text"></td>
+                        <td><input class="form-control" type="text"></td>
+                    </tr> -->
+              </tbody>
+            </table>
+          </div>
+          <button id="addCandidateButton" onclick="addCandidate()" class="btn btn-success fsd" type="button">Add</button>
+
+        </div>
+        <hr>
+        <div class="form-row">
+          <div class="form-group col-md-6 poll_border">
+            <h3>Poll Type</h3>
+            <div class="poll_type_configuration">
+
+
+              <!-- <div class="form-check justify-content-lg-center"><input class="form-check-input" type="radio" id="crbPrivate" name="cPollType" value="private"><label class="form-check-label" for="crbPrivate">Private(T & C Apply)</label></div> -->
+              <div class="form-check"><input value="public" class="form-check-input" type="radio" checked="" id="crbPublic" name="cPollType"><label class="form-check-label" for="crbPublic">Public</label></div>
+            </div>
+
+          </div>
+
+          <div class="form-group col-md-6">
+            <h3>Poll Configuration</h3>
+
+            <div class="poll_type_configuration">
+              <div class="form-check"><input class="form-check-input" type="radio" id="crbSaveDraft" name="cPollConfig" value="DRAFT"><label class="form-check-label" for="crbSaveDraft">Launch</label>
+              </div>
+              <div class="form-check"><input class="form-check-input" type="radio" value="LIVE" id="crbLaunchDirectly" name="cPollConfig" checked=""><label class="form-check-label" for="crbLaunchDirectly">Save as Draft</label></div>
+            </div>
+          </div>
+
+        </div>
+        <hr>
+        <button type="submit" name="submitBtn" class="btn btn-primary footer-button">Save</button>
+        <button class="btn btn-danger footer-button" onclick="history.back()" type="button">Exit</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="section-footer">
+    <div class="copyright">
+      <p>©Impulse VMS By Team 3</p>
+    </div>
+  </section>
+
+  <script src="./public/assets/js/jquery.min.js"></script>
+  <script src="./public/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="./public/assets/js/script.min.js"></script>
+</body>
+<script>
+  var currentNumberOfCandidates = 1
+
+  function addCandidate() {
+    $('#candidateTable').find('tbody').append(
+      `<tr><td><input class="form-control" name = cId[] type="text"></td><td><input class="form-control" name = "cname[]" type="text"></td> </tr>`
+    )
+    currentNumberOfCandidates++
+  }
+</script>
+
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Impulse VMS Dashboard</title>
+  <link rel="icon" href="../public/assets/nlpimages/logo.svg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/e2f5c4a7a4.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../public/assets/css/newLoggStyle.css">
+</head>
+
+<body>
+
+  <!--
+  Top Section
+ -->
+  <section id="section-top">
+    <!-- <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+      <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+        <h3 class="text-dark mb-0">Welcome&nbsp;</h3>
+        <h3 class="text-dark mb-0" name="username" id="username">User</h3>&nbsp
+        <h3 class="text-dark mb-0">(ID: </h3>
+        <h3 class="text-dark mb-0" name="userid" id="user_id">id</h3>
+        <h3 class="text-dark mb-0">) </h3>
+        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <div class="input-group">
+            <div class="input-group-append"></div>
+          </div>
+        </form>
+
+      </div>
+    </nav> -->
+
+    <div class="container-fluid">
+
+
+      <!-- Nav Bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand ti" href="#">Impulse VMS Poll Panel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/newPoll">Create Poll</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section-middle">Polls</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section-footer">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Log-Out</a>
+            </li>
+            <li>
+              <img class="userimg border rounded-circle img-profile" id="user_image" name="user_image" /></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="title-heading">Counting Your Opinions...</h1>
+        </div>
+
+        <div class="col-lg-6">
+          <img class="title-image" src="./public/assets/nlpimages/logo.jpg" alt="iphone-mockup" class="image-phone">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!--
+  Semi-Middle Section
+ -->
+
+  <section id="semi-middle">
+    <div class="container-fluid">
+
+      <div class="section-top-welcome">
+        <h3 class="semi-middle-heading">Welcome <%= user_name %> (User ID: <%= user_id %>) </h3>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!--
+Middle Section
+ -->
+
+  <section id="section-middle">
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- On Going Polling -->
+
+        <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="section-middle-heading3">On-going Polls</h3>
+            </div>
+            <div class="card-body">
+              <img class="section-middle-image" src="../public/assets/nlpimages/ongoing.jpg" alt="on-going image">
+
+              <a id="ongoing_polls" type="link" href = "./getCategory?category=globalLive&user_id=<%= user_id %>" class="btn btn-success btn-block section-middle-button">Enter in Polling</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Up-Comming Polling -->
+        <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="section-middle-heading3">Up-coming Polls</h3>
+            </div>
+            <div class="card-body">
+              <img class="section-middle-image" src="../public/assets/nlpimages/upcoming.jpg" alt="up-coming image">
+
+              <a id="upcoming_polls" type="link" href = "./getCategory?category=globalUpcoming&user_id=<%= user_id %>" class="btn btn-success btn-block section-middle-button">Review</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Previous-Polling -->
+        <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="section-middle-heading3">Finished Polls</h3>
+            </div>
+            <div class="card-body">
+              <img class="section-middle-image" src="../public/assets/nlpimages/previous.png" alt="previous-polls image">
+
+              <a id="previous_polls" type="link" href = "./getCategory?category=globalPrevious&user_id=<%= user_id %>" class="btn btn-success btn-block section-middle-button">See Status</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Your Polls (Live)
+        <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="section-middle-heading3">Your Polls (LIVE)</h3>
+            </div>
+            <div class="card-body">
+              <img class="section-middle-image" src="../public/assets/nlpimages/yourPollLive.jpg" alt="poll-live image">
+
+              <a id="my_live_polls" type="link" href = "/getCategory?category=myLive&user_id=<%= user_id %>" class="btn btn-success btn-block section-middle-button">Enter in Polling</a>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Your Polls (Drafts) -->
+        <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="section-middle-heading3">Your Polls (Drafts)</h3>
+            </div>
+            <div class="card-body">
+              <img class="section-middle-image" src="../public/assets/nlpimages/yourPolldraft.png" alt="poll-draft image">
+
+              <a id="my_drafted_polls" type="link" href = "/getCategory?category=myDrafted&user_id=<%= user_id %>" class="btn btn-success btn-block section-middle-button">Review</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Your Polls (Upcoming) -->
+        <!-- <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="section-middle-heading3">Your Polls (Upcoming)</h3>
+            </div>
+            <div class="card-body">
+              <img class="section-middle-image" src="../public/assets/nlpimages/yourPollupcoming.png" alt="poll-upcoming image">
+
+              <a id="my_upcoming_polls" type="link" href = "./getCategory?category=myUpcoming&user_id=<%= user_id %>" class="btn btn-success btn-block section-middle-button">See Status</a>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Your Polls (Archived) -->
+        <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="section-middle-heading3">Your Polls (Archived)</h3>
+            </div>
+            <div class="card-body">
+              <img class="section-middle-image" src="../public/assets/nlpimages/yourPollarchive.png" alt="poll-archive image">
+
+              <a id="my_archived_polls" type="link" href = "./getCategory?category=myArchived&user_id=<%= user_id %>" class="btn btn-success btn-block section-middle-button">Review</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--
+Footer Section
+ -->
+
+  <section id="section-footer">
+    <a class="border rounded d-inline scroll-to-top" href="#section-top"><i class="fas fa-angle-up"></i></a>
+
+
+    <div class="footer-dark">
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 item text">
+              <h3>Disclaimer</h3>
+              <p>Impulse VMS does not access your cookies. However for security purposes we encourage our users to use HTTPS connections when Voting.&nbsp;</p>
+              <p>Impulse VMS uses Machine Learning Models to validate your face before voting. The data is secured by using Blockchain as well as SHA 256 Checksums.&nbsp;</p>
+              <p>Know more about Impulse VMS by clicking&nbsp;<a href="https://sway.office.com/nJRMfCIYWtKFwagE">here</a>.</p>
+            </div>
+            <div class="col-md-6 item text">
+              <h3>Contact US</h3>
+              <p>You can contact the Impulse VMS Web Administrators by writing to them at:</p>
+              <p>1. Jaskirat Singh Grewal:&nbsp;<a href="mailto: jaskiratsinghgrewal.sd@mmumullana.org"><br><span style="text-decoration: underline;">jaskiratsinghgrewal.sd@mmumullana.org</span><br><br></a></p>
+              <p>2. Shivam Singhal:&nbsp;<a href="mailto: shivam.singhal.sd@mmumullana.org"><br><span style="text-decoration: underline;">shivam.singhal.sd@mmumullana.org</span><br><br></a></p>
+            </div>
+          </div>
+          <div class="copyright">
+            <p>©Impulse VMS By Team 3</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+
+  <script src="../public/assets/js/jquery.min.js"></script>
+  <script src="../public/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+  <script src="../public/assets/js/theme.js"></script>
+
+  <!-- <script> 
+    $(
+      function() {
+        $.get("/getCurrentUserName", async function(data) {
+        
+          $("#user_name").html(data[0])
+          $("#user_id").html(data[1])
+
+          $("#user_image").attr("src", "./uploads/" + data[2]);
+          //       console.log(data[2].data)
+          //    var objUrl =  URL.createObjectURL(data[2])
+          //     var pictureElement = $("#user_picture")
+          //     pictureElement.srcObject = data[2]
+        })
+        //.then(retrieve)
+      }
+    )
+
+    function hexToBase64(str) {
+      return btoa(String.fromCharCode.apply(null, str.replace(/\r|\n/g, "").replace(/([\da-fA-F]{2}) ?/g, "0x$1 ")
+        .replace(/ +$/, "").split(" ")));
+    }
+
+
+    function retrieve() {
+      var theUserId = $("#user_id").html()
+      var theDataObject = {
+        usrid: theUserId
+      }
+
+      function getPoll(pollId, pollStatus) {
+        $.get('/openPoll', {
+          poll_id: pollId,
+          poll_status: pollStatus,
+          user_id: theUserId
+        })
+      }
+      $.get('/getListOfEvents', theDataObject, function(recievedData) {
+        // The recieved data will be an array of event-ids
+        var event_id_array = recievedData
+        console.log(Array.isArray(event_id_array))
+        // if (Array.isArray(event_id_array)==false)  {
+        //  alert("Here")
+        //     $.get("/getPollInformation",{
+        //         poll_id:event_id_array
+        //     },function(currentPollInformation) {
+
+        //         var theString =
+        //             ` <div class="card-body"><a class="small font-weight-bold" id = "poll_id-${event_id_array}">${event_id_array}</div>`
+        //         $('#ongoing_polls').append(theString)
+        //     })
+        //     return
+        // }
+
+        var i = 0
+        for (i = 0; i < event_id_array.length; i++) {
+          var currentPollId = event_id_array[i]
+          // Get the poll name using poll id
+          var currentPollName
+          $.get("/getPollInformation", {
+            poll_id: currentPollId
+          }, function(recievedPollInformation) {
+            currentPollId = recievedPollInformation[0].poll_id
+            currentPollName = recievedPollInformation[0].poll_title
+            var currentPollStatus = recievedPollInformation[0].poll_status
+            var the_user_id = $("#user_id").html()
+            var theString =
+              ` <div class="card-body"><a class="small font-weight-bold" id = "a_${currentPollId}"  href = "./openPoll?poll_id=${currentPollId}&poll_name=${currentPollName}&user_id=${the_user_id}">${currentPollName} </div>`
+
+            switch (recievedPollInformation[0].poll_status) {
+              case "LIVE":
+                $('#ongoing_polls').append(theString)
+                break;
+              case "DONE":
+                $('#previous_polls').append(theString)
+                break;
+              case "READY":
+                $("#upcoming_polls").append(theString)
+                break;
+              case "DRAFT":
+                if (recievedPollInformation[0].poll_host == $("#user_id").html()) {
+                  $("my_drafted_polls").append(theString)
+                }
+                break;
+            }
+            if (recievedPollInformation[0].poll_host == $("#user_id").html()) {
+              switch (recievedPollInformation[0].poll_status) {
+                case "LIVE":
+                  $('#my_live_polls').append(theString)
+                  break;
+                case "DONE":
+                  $('#my_archived_polls').append(theString)
+                  break;
+                case "READY":
+                  $("#my_upcoming_polls").append(theString)
+                  break;
+              }
+            }
+            // $(`#a_${currentPollId}`).bind('click',function(e) {
+            //     e.preventDefault()
+
+            //     $.get('/openPoll',{
+            //         poll_id: currentPollId
+            //     })
+            // })
+            // theLink.addEventListener('click', $.get('/openPoll', {
+            //     poll_id: currentPollId,
+            //     pollStatus: recievedPollInformation[0].poll_status
+            // })
+            // )
+          })
+
+        }
+      })
+
+
+    }
+  </script>-->
+</body>
+
+</html>

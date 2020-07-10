@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impulse VMS: <%= poll_info.poll_id %> </title>
+    <script src="../public/assets/js/jquery.min.js"></script>
+</head>
+
+<body id="b">
+    <div id="diva">
+        <h1><%= poll_info.poll_title %></h1>
+    </div>
+    <a href="/startVoting?poll_id=<%= poll_info.poll_id %>&user_id=<%=user_id %>">Click Here To Vote</a>
+    <input type="button" id="btn_pollDetails" onclick="showPollDetails(0)" value="Show Poll Details">
+    <input type="button" id="btn_vote" value="Vote">
+    <input type="button" onclick="showResults()" value="Show Results">
+
+    <script>
+        function showResults() {
+            $.get('/getPollResults', {
+                poll_id: <%= poll_info.poll_id %>
+            })
+        }
+
+        function showPollDetails() {
+            var element = document.createElement("div");
+            element.id = "pollDetails"
+            element.innerHTML = `<% for(const property in poll_info) {%>
+        <br/> <%= property %> : <%= poll_info[property]  %>  
+    <% }%>`
+            document.getElementById('diva').append(element)
+            document.getElementById('btn_pollDetails').setAttribute('value', "Hide Results")
+
+        }
+        
+        $("#btn_vote").on('click', function () {
+            window.location.href = `../startVoting?poll_id=<%= poll_info.poll_id %>&user_id=<%=user_id %>`
+
+        })
+    </script>
+</body>
+
+</html>

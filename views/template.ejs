@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title><%= category %> Polls</title>
+  <link rel="icon" href="../public/assets/img/logo.svg">
+  <link rel="stylesheet" href="../public/assets/bootstrap/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <!-- <script src="https://kit.fontawesome.com/e2f5c4a7a4.js" crossorigin="anonymous"></script> -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../public/assets/css/templateStyle.css">
+</head>
+
+<body>
+
+
+
+  <!--
+  Top Section
+ -->
+  <section id="section-top">
+
+    <div class="container-fluid">
+
+      <!-- Nav Bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand ti" href="#"><%= user_id %>:<%= user_name %> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#section-middle">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Log-Out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+  </section>
+
+
+  <!--
+  Semi-Middle Section
+ -->
+
+  <section id="semi-middle">
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 id="winner-declaration"><%= category %></h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <h4 id="name-of-election"><%= comment %></h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--
+Middle Section
+ -->
+  <hr>
+  <section id="section-event">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="list-group">
+            <% if (poll_ids.length==0) { %>
+             No <%= category %> Availaible for You At the Moment.
+            <% } else {%>
+              <li class="list-group-item active">Click On Poll Below</li>
+            <% } %>
+             
+          
+      <% for( let i = 0; i < poll_ids.length; i++ ) { %>
+       <!-- <%=  poll_ids[i] %> -->
+      <a href="/openPoll?poll_id=<%= poll_ids[i] %>&poll_name=<%= poll_names[i] %>&user_id= <%= user_id %>   "><li class="list-group-item"><%= poll_names[i] %> </li></a>
+      <% } %>
+             
+            
+            
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section id="section-footer">
+    <div class="footer-dark">
+      <footer>
+        <div class="container">
+          <div class="copyright">
+            <p>©Impulse VMS By Team 3</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+</body>
+
+</html>

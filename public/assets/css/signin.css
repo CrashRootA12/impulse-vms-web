@@ -1,0 +1,172 @@
+body{
+  background-color: #dbe2ef;
+  text-align: center;
+}
+
+/********************************************************************************************************
+Top Section
+
+*********************************************************************************************************/
+
+#section-top{
+  background-color: #1f4068;
+  height: 0.5%;
+  text-align: center;
+
+}
+
+.userimg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.container-fluid{
+  padding: 3% 10% 1%;
+}
+
+.title-image{
+  border-radius: 100%;
+  width: 30%;
+  margin-left: 12.5rem;
+}
+
+.title-heading{
+  color:white;
+  font-size:2rem;
+  padding-top: 3rem;
+  margin-right: 3.43rem;
+}
+
+.nav-item{
+  padding-right: 1rem;
+}
+
+@media (max-width:990px) {
+    .title-image{
+      margin-left: 0rem;
+      text-align: center;
+
+    }
+}
+
+/********************************************************************************************************
+Semi-Middle Section
+
+*********************************************************************************************************/
+
+#semi-middle{
+  background-color: #dbe2ef;
+  color: #3d84a8;
+}
+
+.semi-middle-heading{
+  display: inline-block;
+  font-size: 1.1rem;
+}
+
+#semi-middle .container-fluid{
+  padding-top: 1rem;
+}
+
+
+/********************************************************************************************************
+Middle Section
+
+*********************************************************************************************************/
+
+
+#section-middle{
+  text-align: center;
+  width: 100%;
+}
+
+.section-middle-heading3{
+  font-size: 1.2rem;
+}
+
+.card-header{
+  background-color: #3d84a8;
+  color: #abedd8;
+}
+
+.card-body{
+  background-color: #d3d4d8;
+}
+
+.card{
+  margin: 0.05% 5% 5% 5%;
+  height: 90%;
+  border: solid;
+  border-color: #faf2f2;
+}
+
+.section-middle-image{
+  width: 100%;
+  height: 60%;
+  padding: 2%;
+  border-radius: 5%;
+}
+
+.section-middle-button{
+  margin-top: 2rem;
+}
+
+/********************************************************************************************************
+Footer Section
+
+*********************************************************************************************************/
+#section-footer{
+  background-color: #393e46;
+  color:#fff;
+
+
+}
+
+.copyright{
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+
+.scroll-to-top{
+  float: right;
+}
+
+
+/* Image */
+.title-image{
+  border-radius: 100%;
+  width: 50%;
+  margin-left: 0px;
+  margin-bottom: 10%;
+  border: solid;
+}
+
+#section-middle{
+  text-align: center;
+  /* width: 50%; */
+
+}
+
+
+.middle-container-fluid{
+  margin-top:0px;
+  margin-bottom: 2.1%;
+}
+
+.form-style{
+  text-align: center;
+}
+
+
+
+.btn-footer{
+  width: 50%;
+  height: 600%;
+  margin-top: 5%;
+  background-color: #1f4068;
+}
+
+.input-style{
+  text-align: center;
+}

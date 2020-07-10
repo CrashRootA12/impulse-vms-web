@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>A</title>
+    <link rel="stylesheet" href="../public/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="../public/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../public/assets/css/Article-List.css">
+    <link rel="stylesheet" href="../public/assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="../public/assets/css/Header-Dark-1.css">
+    <link rel="stylesheet" href="../public/assets/css/Header-Dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="../public/assets/css/Navbar-with-menu-and-login.css">
+    <link rel="stylesheet" href="../public/assets/css/Social-Icons.css">
+</head>
+
+<body>
+    <h2>Live Results of Poll: &lt;%= poll_title %&gt; ID: &lt;%= poll_id %&gt;</h2>
+    <header></header>
+    <div class="dropdown show"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+            aria-expanded="true" type="button">Choose Chart Type</button>
+        <div class="dropdown-menu show" role="menu"><a class="dropdown-item" role="presentation" href="#">Bar
+                Chart</a><a class="dropdown-item" role="presentation" href="#">Pie Chart</a>
+            <!-- <div class="dropdown-divider" role="presentation"></div> -->
+        </div>
+    </div>
+    <div>
+        <canvas id="theChart"></canvas>
+    </div>
+    <script src="../public/assets/js/jquery.min.js"></script>
+    <script src="../public/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../public/assets/js/chart.min.js"></script>
+    <script src="../public/assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="../public/assets/js/agency.js"></script>
+    <script>
+       
+        var ctx = document.getElementById("theChart").getContext('2d')
+        var myNewChart = new Chart(ctx, {
+            type: 'bar',
+                data: {
+                    labels: [
+                        "<%= chartLabel %>"
+                    ],
+                    datasets: [{
+                        label: 'Population',
+                        data: [
+                            <%= chartData %>
+                        ],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)'
+                        ]
+                    }]
+                }
+            }
+        )
+    </script>
+</body>
+
+</html>

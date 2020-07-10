@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Impulse VMS: Create New Poll</title>
+    <link rel="stylesheet" href="./public/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700">
+    <link rel="stylesheet" href="./public/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>
+<body>
+    <header>
+        <h1
+            style="opacity: 1;filter: blur(0px) brightness(109%) contrast(200%) saturate(200%);background-color: #baa95e;">
+            IMPULSE VMS: CREATE NEW POLL</h1>
+    </header>
+    <form class="border rounded border-primary bounce animated" method="post" action="/createPollSubmit">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Poll Title</span></div>
+                    <input
+                    class="form-control" type="text" name="cPollTitle" required="">
+                <div class="input-group-append"></div>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text">Poll Description</span></div><textarea
+                    name="cPollDesc" class="form-control"></textarea>
+                <div class="input-group-append"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <fieldset>
+                <legend>Poll Type</legend>
+                <div class="form-check justify-content-lg-center"><input class="form-check-input" type="radio"
+                        id="crbPrivate" name="cPollType" value = "private"><label class="form-check-label"
+                        for="crbPrivate">Private</label></div>
+                <div class="form-check"><input value="public" class="form-check-input" type="radio" checked="" id="crbPublic" 
+                        name="cPollType"><label class="form-check-label" for="crbPublic">Public</label></div>
+            </fieldset>
+        </div>
+        <div class="form-group">
+            <legend>Poll Candidates Detail</legend>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-dark" id="candidateTable">
+                    <thead>
+                        <tr>
+                            <th>Candidate ID (Must Be Unique)</th>
+                            <th>Candidate Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td><input class="form-control" type="text"></td>
+                            <td><input class="form-control" type="text"></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div><button id="addCandidateButton" onclick="addCandidate()"
+                class="btn btn-secondary btn-block bg-secondary border rounded border-secondary" type="button">Add
+                Candidate</button>
+        </div>
+        <div class="form-group">
+            <fieldset>
+                <legend>Poll Configuration</legend>
+                <div class="form-check"><input class="form-check-input" type="radio" id="crbSaveDraft"
+                        name="cPollConfig" value = "draft"><label class="form-check-label"  for="crbSaveDraft">Save As Draft</label>
+                </div>
+                <div class="form-check"><input class="form-check-input" type="radio" value = "LIVE" id="crbLaunchDirectly"
+                        name="cPollConfig" checked=""><label class="form-check-label" for="crbLaunchDirectly">Launch
+                        Poll Directly</label></div>
+            </fieldset>
+        </div><button name = "submitBtn" class="btn btn-success btn-block border rounded" type="submit">Save Changes To
+            Impulse</button><button class="btn btn-danger btn-block" onclick = "history.back()" type="button">EXIT Without Saving Changes</button>
+    </form>
+    <script src="./public/assets/js/jquery.min.js"></script>
+    <script src="./public/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="./public/assets/js/script.min.js"></script>
+</body>
+<script>
+    var currentNumberOfCandidates = 1
+    function addCandidate() {
+        $('#candidateTable').find('tbody').append(
+            `<tr><td><input class="form-control" name = cId[] type="text"></td><td><input class="form-control" name = "cname[]" type="text"></td> </tr>`
+            )
+        currentNumberOfCandidates++
+    }
+</script>
+</html>

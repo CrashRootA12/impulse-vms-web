@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Impulse VMS: <%= poll_info.poll_title %></title>
+    <link rel="icon" type="image/svg+xml" sizes="400x400" href="assets/img/logo.svg">
+    <link rel="stylesheet" href="../public/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Akronim"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amita"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus+Slab"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chelsea+Market"> -->
+    <link rel="stylesheet" href="../public/assets/css/ns.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
+</head>
+
+<body class="text-left d-flex flex-column" style="background-color: rgba(0,0,0,0.2);">
+    <section class="d-flex"><img class="d-xl-flex align-self-start m-auto"  src="../views/logo.svg" style="width: 275px;height: 440px;background-color: #6f7a85;">
+        <div class="container d-flex flex-column justify-content-start align-self-center flex-wrap justify-content-xl-center"
+            style="background-color: #6f7a85;">
+            <header class="d-lg-flex justify-content-lg-center align-items-lg-start">
+                <h2 style="font-family: Aclonica, sans-serif;filter: brightness(100%) invert(0%);"><%= poll_info.poll_title %></h2>
+            </header>
+            <div>
+                <div class="row">
+                    <div class="col text-left">
+                        <div>
+                            <h3><em>Description</em></h3>
+                        </div>
+                        <p><%= poll_info.poll_desc %></p>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <h3><em>Other Information</em></h3>
+                        </div>
+                        <p class="text-left">
+                            `<% for(const property in poll_info) {%>
+                                <% if (property == "poll_desc") { %>
+                                    <% continue; } %>
+                                <br/> <%= property %> : <%= poll_info[property]  %>  
+                            <% }%>
+                        </p>
+                    </div>
+                </div>
+            </div><a class="btn btn-primary" role="button" href="../startVoting?poll_id=<%= poll_info.poll_id %>&user_id=<%=user_id %>" style="background-color: #434a52;">Click Here To Vote</a>
+            <a class="btn btn-primary" role="button" href="/results?poll_id=<%= poll_info.poll_id %>&poll_title=<%= poll_info.poll_title %>  " style="background-color: #434a52;">View Poll Results</a></div>
+    </section>
+    <br>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 item text">
+                        <h3>Disclaimer</h3>
+                        <p>Impulse VMS does not access your cookies. However for security purposes we encourage our users to use HTTPS connections when Voting.&nbsp;</p>
+                        <p>Impulse VMS uses Machine Learning Models to validate your face before voting. The data is secured by using Blockchain as well as SHA 256 Checksums.&nbsp;</p>
+                        <p>Know more about Impulse VMS by clicking&nbsp;<a href="https://sway.office.com/nJRMfCIYWtKFwagE">here</a>.</p>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Contact US</h3>
+                        <p>You can contact the Impulse VMS Web Administrators by writing to them at:</p>
+                        <p>1. Jaskirat Singh Grewal:&nbsp;<a href="mailto: jaskiratsinghgrewal.sd@mmumullana.org"><br><span style="text-decoration: underline;">jaskiratsinghgrewal.sd@mmumullana.org</span><br><br></a></p>
+                        <p>2. Shivam Singhal:&nbsp;<a href="mailto: shivam.singhal.sd@mmumullana.org"><br><span style="text-decoration: underline;">shivam.singhal.sd@mmumullana.org</span><br><br></a></p>
+                    </div>
+                </div>
+                <p class="copyright">Impulse VMS By Team 3</p>
+            </div>
+        </footer>
+    </div>
+    <script src="../public/assets/js/jquery.min.js"></script>
+    <script src="../public/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../public/assets/js/script.min.js"></script>
+</body>
+
+</html>

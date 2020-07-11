@@ -9,5 +9,5 @@ The purpose of this software is to withdraw the manual work which is done to man
 Impulse VMS is purely generic, which means that it is the kind of the software you can use in quizzes, voting at small level (like voting for class monitor) and even for the political elections (terms and conditions apply). 
 The software is distributed in a web-app version as well as a mobile app version. Hence, it can be accessed from any device.
 
-**Designed and Developed (in Node JS) By @CrashRootA12 and @ShivamSinghal336**
+**Designed and Developed (in Node JS) By @CrashRootA12 and @Shivam336**
 
